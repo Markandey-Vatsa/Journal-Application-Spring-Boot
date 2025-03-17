@@ -61,4 +61,8 @@ public class UserService {
         user.setRoles(Arrays.asList("ADMIN","USER"));
         UserRepository.save(user);
     }
+
+    public void newFunction(){
+        System.out.println("hello");
+    }
 }
