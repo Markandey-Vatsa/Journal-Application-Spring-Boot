@@ -62,7 +62,4 @@ public class UserService {
         UserRepository.save(user);
     }
 
-    public void newFunction(){
-        System.out.println("hello");
-    }
 }
