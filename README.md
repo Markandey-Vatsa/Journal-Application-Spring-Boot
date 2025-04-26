@@ -1,2 +1,2 @@
 # Journal-Application-Spring-Boot
-Application allows users to write and save journals
+This is a work-in-progress Journal Application built using Spring Boot. The backend is fully functional with features like authentication and authorization already implemented to ensure secure access to journal entries. Users can create, update, view, and delete their own journal entries through the API endpoints. Currently, the project does not include a frontend UI — it is focused on building a robust and secure backend service.
