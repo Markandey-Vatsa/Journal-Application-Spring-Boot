@@ -23,7 +23,6 @@ public class adminController {
         if(all != null && !all.isEmpty()){
             return new ResponseEntity<>(all, HttpStatus.OK);
         }
-
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
