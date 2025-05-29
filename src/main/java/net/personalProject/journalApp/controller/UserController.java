@@ -1,20 +1,13 @@
-package net.engineeringdigest.journalApp.controller;
+package net.personalProject.journalApp.controller;
 
-import net.engineeringdigest.journalApp.Repository.UserEntryRepository;
-import net.engineeringdigest.journalApp.Services.JournalEntryService;
-import net.engineeringdigest.journalApp.Services.UserService;
-import net.engineeringdigest.journalApp.entity.JournalEntry;
-import net.engineeringdigest.journalApp.entity.User;
-import org.apache.coyote.Response;
-import org.bson.types.ObjectId;
+import net.personalProject.journalApp.Services.UserService;
+import net.personalProject.journalApp.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import java.time.LocalDateTime;
-import java.util.*;
 
 @RestController
 @RequestMapping("/user")

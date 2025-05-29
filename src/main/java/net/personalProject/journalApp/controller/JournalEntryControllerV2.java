@@ -1,9 +1,8 @@
-package net.engineeringdigest.journalApp.controller;
-import net.engineeringdigest.journalApp.Services.JournalEntryService;
-import net.engineeringdigest.journalApp.Services.UserService;
-import net.engineeringdigest.journalApp.entity.JournalEntry;
-import net.engineeringdigest.journalApp.entity.User;
-import org.apache.coyote.Response;
+package net.personalProject.journalApp.controller;
+import net.personalProject.journalApp.Services.JournalEntryService;
+import net.personalProject.journalApp.Services.UserService;
+import net.personalProject.journalApp.entity.JournalEntry;
+import net.personalProject.journalApp.entity.User;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import java.time.LocalDateTime;
+
 import java.util.*;
 import java.util.stream.Collectors;
 

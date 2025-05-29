@@ -1,4 +1,4 @@
-package net.engineeringdigest.journalApp.entity;
+package net.personalProject.journalApp.entity;
 
 //POJO -> PLANE OLD JAVA OBJECT CLASS
 

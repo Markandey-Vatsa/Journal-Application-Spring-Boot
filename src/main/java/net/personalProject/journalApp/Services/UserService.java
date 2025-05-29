@@ -1,9 +1,9 @@
-package net.engineeringdigest.journalApp.Services;
+package net.personalProject.journalApp.Services;
 
 
-import net.engineeringdigest.journalApp.Repository.UserEntryRepository;
-import net.engineeringdigest.journalApp.entity.JournalEntry;
-import net.engineeringdigest.journalApp.entity.User;
+import lombok.extern.slf4j.Slf4j;
+import net.personalProject.journalApp.Repository.UserEntryRepository;
+import net.personalProject.journalApp.entity.User;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -16,7 +16,10 @@ import java.util.Optional;
 
 
 @Component
+@Slf4j
 public class UserService {
+
+//    private static final Logger logger = LoggerFactory.getLogger(UserService.class);
 
     private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
@@ -29,10 +32,16 @@ public class UserService {
     }
 
 
-    public void saveNewUserEntry(User UserEntry){
-        UserEntry.setPassword(passwordEncoder.encode(UserEntry.getPassword()));
-        UserEntry.setRoles(Arrays.asList("USER"));
-        UserRepository.save(UserEntry);
+    public boolean saveNewUserEntry(User UserEntry){
+        try {
+            UserEntry.setPassword(passwordEncoder.encode(UserEntry.getPassword()));
+            UserEntry.setRoles(Arrays.asList("USER"));
+            UserRepository.save(UserEntry);
+            return true;
+        }catch(Exception e){
+            log.warn("Warning {} :",UserEntry.getUserName(),e);
+            return false;
+        }
     }
 
 

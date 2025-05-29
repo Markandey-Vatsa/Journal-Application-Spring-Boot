@@ -1,9 +1,8 @@
-package net.engineeringdigest.journalApp.entity;
+package net.personalProject.journalApp.entity;
 
 
 import lombok.Data;
 import lombok.NonNull;
-import org.apache.commons.collections.iterators.CollatingIterator;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
