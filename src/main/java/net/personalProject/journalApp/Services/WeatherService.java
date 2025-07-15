@@ -35,5 +35,4 @@ public class WeatherService {
        return body;
     }
 
-
 }
