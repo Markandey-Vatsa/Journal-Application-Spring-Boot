@@ -1,8 +1,10 @@
 package net.personalProject.journalApp.controller;
 
 import net.personalProject.journalApp.Repository.UserEntryRepository;
+import net.personalProject.journalApp.Services.QuoteService;
 import net.personalProject.journalApp.Services.UserService;
 import net.personalProject.journalApp.Services.WeatherService;
+import net.personalProject.journalApp.apiResponse.QuoteResponse;
 import net.personalProject.journalApp.apiResponse.WeatherResponse;
 import net.personalProject.journalApp.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class UserController {
     UserService userService;
     @Autowired
     WeatherService weather;
+
+    @Autowired
+    QuoteService quoteService;
 
     @Autowired
     UserEntryRepository userEntryRepository;
@@ -50,13 +55,15 @@ public class UserController {
     public ResponseEntity<?> greeting(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         WeatherResponse weatherResponse = weather.getWeather("New Delhi");
+        QuoteResponse quoteResponse = quoteService.quoteOfTheMoment();
+        String quote = quoteResponse.getQuote();
         String greetings;
         if(weatherResponse!=null) {
              greetings = "Hi " + authentication.getName()+", today feels like "+weatherResponse.getCurrent().getFeelsLike();
         }else{
             greetings = "Hi " + authentication.getName();
         }
-        return new ResponseEntity<>(greetings, HttpStatus.OK);
+        return new ResponseEntity<>(greetings+"\nQUOTE OF THE MOMENT: "+quote, HttpStatus.OK);
     }
 
 }
