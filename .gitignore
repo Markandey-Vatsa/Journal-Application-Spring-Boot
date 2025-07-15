@@ -15,6 +15,7 @@ target/
 *.yml
 *.properties
 *.log
+src/main/java/net/personalProject/journalApp/ApiKeys/
 ### IntelliJ IDEA ###
 .idea
 *.iws
