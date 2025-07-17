@@ -11,10 +11,10 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableTransactionManagement
-public class JournalApplication {
+public class MoodLogApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(JournalApplication.class, args);
+        SpringApplication.run(MoodLogApplication.class, args);
     }
     @Bean
     public PlatformTransactionManager manager(MongoDatabaseFactory dbFactory){
