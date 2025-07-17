@@ -1,6 +1,8 @@
 package net.personalProject.journalApp.Services;
 
 
+import net.personalProject.journalApp.Cache.AppCache;
+import net.personalProject.journalApp.Repository.ConfigAppCacheRepository;
 import net.personalProject.journalApp.apiResponse.QuoteResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,10 +15,10 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class QuoteService {
-    @Value("${quote.api.key}")
-    private String api_key;
 
-    private String url = "https://api.api-ninjas.com/v1/quotes";
+    @Autowired
+    AppCache APP_CACHE;
+
 
     @Autowired
     RestTemplate restTemplate;
@@ -25,13 +27,13 @@ public class QuoteService {
 
     public QuoteResponse quoteOfTheMoment() {
         HttpHeaders headers = new HttpHeaders();
-        headers.set("X-Api-Key", api_key);
+        headers.set("X-Api-Key", APP_CACHE.appCache.get("quote_service_key"));
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
 
 
         ResponseEntity<QuoteResponse[]> response = restTemplate.exchange(
-                url,
+                APP_CACHE.appCache.get("quote_service_api"),
                 HttpMethod.GET,
                 entity,
                 QuoteResponse[].class
